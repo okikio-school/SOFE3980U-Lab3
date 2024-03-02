@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bcalc-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bcalc
+  template:
+    metadata:
+      labels:
+        app: bcalc
+    spec:
+      containers:
+        - image: okikioschool/binarycalculator
+          name: bcalc
+          ports:
+            - containerPort: 8080
+              name: bcalc
